@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 信息速查与延伸阅读 · play-asia-shijiebei.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f2f4f7;
+            color: #1e2a3a;
+            line-height: 1.65;
+            padding: 2rem 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* 柔和的卡片系统 */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e6ed;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
+            padding: 2rem 2.2rem;
+            transition: box-shadow 0.2s ease;
+            margin-bottom: 2rem;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        /* hero 区域 */
+        .hero {
+            text-align: left;
+            padding: 2.8rem 2.2rem 2.4rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2b;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4f5b6b;
+            max-width: 680px;
+            border-left: 4px solid #d0d7e2;
+            padding-left: 1.2rem;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        /* 摘要 / intro */
+        .intro p {
+            font-size: 1.05rem;
+            color: #2b3648;
+        }
+
+        /* 亮点网格 */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.6rem;
+            margin-top: 0.25rem;
+        }
+        .highlight-item {
+            background: #f8f9fc;
+            border-radius: 16px;
+            padding: 1.5rem 1.5rem 1.6rem;
+            border: 1px solid #e9ecf2;
+        }
+        .highlight-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #14273c;
+            margin-bottom: 0.6rem;
+        }
+        .highlight-item p {
+            font-size: 0.95rem;
+            color: #3d4a5c;
+        }
+
+        /* 使用建议 + 场景卡片 */
+        .usage-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.2rem 0 0.5rem;
+        }
+        .usage-col {
+            flex: 1 1 260px;
+        }
+        .usage-col h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.9rem;
+            color: #1b2a3e;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.35rem;
+            display: inline-block;
+        }
+        .usage-col ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .usage-col li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #e4e9f0;
+            font-size: 0.98rem;
+            color: #2c3a4f;
+        }
+        .usage-col li:last-child {
+            border-bottom: none;
+        }
+        .usage-col li::before {
+            content: "·";
+            color: #7a8ba3;
+            margin-right: 0.6rem;
+            font-weight: 600;
+        }
+
+        /* 提示 / 说明块 */
+        .note-box {
+            background: #f5f7fb;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #dee4ed;
+            margin: 1.8rem 0;
+        }
+        .note-box strong {
+            color: #162b42;
+        }
+
+        /* FAQ 摘要 ———— 极简折叠感 */
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 2rem;
+            justify-content: space-between;
+        }
+        .faq-item {
+            flex: 1 1 200px;
+            padding: 0.8rem 0;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            color: #1e334e;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #4f6177;
+        }
+
+        /* 链接样式 ———— 嵌入句中 */
+        .text-link {
+            color: #1f5090;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc9dd;
+            padding-bottom: 0.05rem;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .text-link:hover {
+            color: #0a2d5c;
+            border-bottom-color: #1f5090;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.9rem; }
+            .card { padding: 1.6rem 1.2rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero .sub { font-size: 1rem; }
+            .note-box { padding: 1.2rem 1.2rem; }
+            .highlights-grid { gap: 1rem; }
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3e8f0;
+            margin: 1rem 0 0.8rem;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6c7c93;
+            margin-top: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Hero 区域 -->
+    <div class="card hero">
+        <h1>世界杯 · 日常查询与对照指南</h1>
+        <div class="sub">
+            从历届赛果、预选赛积分到延伸阅读，为球迷与研究者提供结构化的信息锚点。
+        </div>
+    </div>
+
+    <!-- 摘要卡片 -->
+    <div class="card intro">
+        <p>对于经常需要查对赛程、球队历史或赛事数据的用户而言，一个稳定且信息层级清晰的专题页面能大幅节省检索时间。<strong>play-asia-shijiebei.com</strong> 围绕 <a href="https://play-asia-shijiebei.com" class="text-link">世界杯</a> 这一核心主题，整合了赛事档案、统计数据与背景材料，适合在观赛前后快速对照，也适合作为知识延伸的起点。</p>
+    </div>
+
+    <!-- 亮点 (差异化内容) -->
+    <div class="card">
+        <h2 style="font-weight: 500; font-size: 1.4rem; margin-bottom: 1.2rem;">信息组织特点</h2>
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <h3>多维度筛选</h3>
+                <p>按年份、赛区、分组、淘汰赛阶段浏览，避免在散落的信息流中反复跳转。</p>
+            </div>
+            <div class="highlight-item">
+                <h3>对照式展示</h3>
+                <p>同一页面内并列呈现不同参赛队的周期战绩，便于横向对比与趋势观察。</p>
+            </div>
+            <div class="highlight-item">
+                <h3>背景延伸</h3>
+                <p>每届赛事附带简明的背景说明、举办城市与标志性比赛节点，辅助语境理解。</p>
+            </div>
+            <div class="highlight-item">
+                <h3>轻量引用</h3>
+                <p>数据与时间线均为简短条目式，方便直接引用到个人笔记或讨论中。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 场景 (2列) -->
+    <div class="card">
+        <div class="usage-area">
+            <div class="usage-col">
+                <h2>常见使用场景</h2>
+                <ul>
+                    <li>观赛期间快速确认球队历史交锋记录</li>
+                    <li>预选赛阶段追踪各小组积分变化</li>
+                    <li>查阅历届冠军、最佳射手等统计</li>
+                    <li>为内容创作或数据分析整理基础素材</li>
+                </ul>
+            </div>
+            <div class="usage-col">
+                <h2>延伸对照建议</h2>
+                <ul>
+                    <li>结合当届举办国信息理解赛程安排逻辑</li>
+                    <li>对比同一大洲球队在不同周期的表现曲线</li>
+                    <li>从亚军、四强分布观察足球格局变迁</li>
+                    <li>将赛事时间线与国际足球规则修订相互参照</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 可信但克制的说明 (类似提示) -->
+    <div class="note-box">
+        <strong>· 使用说明 ·</strong> 页面内容基于公开赛事资料整理，仅供个人参考与延伸阅读。不提供实时比分、投注信息或未授权数据流。所有信息请以国际足联或赛事官方发布为准。若需深度研究，建议将本站作为线索索引，再交叉验证原始来源。
+    </div>
+
+    <!-- FAQ 摘要 (极简，不重复常规问答) -->
+    <div class="card">
+        <h2 style="font-weight: 500; font-size: 1.2rem; margin-bottom: 0.8rem;">常见检索点 · 摘要</h2>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="q">历届冠军列表？</div>
+                <div class="a">包含从1930到最近一届的冠亚军，按时间排列。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">预选赛分区怎么查？</div>
+                <div class="a">按各大洲足联（AFC、CAF、UEFA等）分组呈现。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">同一球队的参赛次数？</div>
+                <div class="a">提供球队历次决赛圈参赛年份与最佳成绩。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">是否有延伸阅读链接？</div>
+                <div class="a">每个赛事条目附有简要背景及外部参考方向。</div>
+            </div>
+        </div>
+        <hr>
+        <p style="font-size: 0.95rem; color: #3f556d;">更多内容请直接访问 <a href="https://play-asia-shijiebei.com" class="text-link">世界杯</a> 专题页面，按需浏览或检索。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        信息页面 · 持续优化结构 · 以阅读和对照为出发点
+    </div>
+
+</div>
+</body>
+</html>
