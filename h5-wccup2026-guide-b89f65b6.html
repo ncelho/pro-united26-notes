@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 稳定入口页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f9fb;
+            color: #1e2a3a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 2.4rem 1.8rem;
+        }
+
+        /* hero 区 */
+        .hero {
+            padding: 4.8rem 0 2.4rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #62748c;
+            background: #edf1f6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #334155;
+            max-width: 600px;
+        }
+
+        .hero .meta-note {
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-left: 3px solid #94a3b8;
+            padding-left: 1rem;
+        }
+
+        /* 通用标题 */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+            margin: 3rem 0 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1e293b;
+            margin: 1.6rem 0 0.4rem;
+        }
+
+        .subdued {
+            color: #475569;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+        }
+
+        /* 优势网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2.2rem;
+            margin: 1.2rem 0 1.8rem;
+        }
+
+        .grid-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 0 0 1px #eef2f6;
+            transition: box-shadow 0.15s;
+        }
+
+        .grid-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 0 0 1px #dce2ea;
+        }
+
+        .grid-item .label {
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #0f172a;
+        }
+
+        .grid-item .desc {
+            font-size: 0.92rem;
+            color: #475569;
+        }
+
+        /* 说明区 / callout */
+        .callout-box {
+            background: #edf2f9;
+            border-radius: 14px;
+            padding: 1.6rem 1.8rem;
+            margin: 2.4rem 0 1.6rem;
+        }
+
+        .callout-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .callout-box a {
+            font-weight: 500;
+        }
+
+        a {
+            color: #1d4ed8;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #1d4ed8;
+        }
+
+        /* FAQ 摘要 */
+        .faq-list {
+            list-style: none;
+            margin: 1rem 0 2rem;
+        }
+
+        .faq-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #dde3ea;
+        }
+
+        .faq-list li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #0f172a;
+        }
+
+        .faq-a {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-top: 0.15rem;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            margin-top: 3.6rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #64748b;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.6rem;
+            justify-content: space-between;
+        }
+
+        .footer-links a {
+            color: #334155;
+            border-bottom: 1px solid transparent;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #94a3b8;
+        }
+
+        .footer-links .copy {
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+        /* 响应式 */
+        @media (max-width: 560px) {
+            .container {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 区 -->
+    <section class="hero">
+        <span class="badge">稳定入口 · 2026</span>
+        <h1>世界杯信息页<br>直达核心入口</h1>
+        <p>面向关注 <a href="https://h5-wccup2026.com">世界杯</a> 的访问者，提供结构清晰、加载快速的说明页。无需层层跳转，关键内容与引导均在首屏附近完成。</p>
+        <div class="meta-note">
+            页面定位：落地页 · 内容聚合 · 无干扰
+        </div>
+    </section>
+
+    <!-- 优势区：稳定 · 轻量 · 明确 -->
+    <section>
+        <h2>为什么选择这个入口</h2>
+        <div class="grid-2">
+            <div class="grid-item">
+                <span class="label">直达路径</span>
+                <span class="desc">从本页到目标站点之间无中间跳转页，减少等待和混淆。链接直接指向 <a href="https://h5-wccup2026.com">世界杯</a> 域名。</span>
+            </div>
+            <div class="grid-item">
+                <span class="label">信息密度</span>
+                <span class="desc">在有限的篇幅内覆盖背景、特点与常见问题，避免冗余修饰。每段内容均经精简。</span>
+            </div>
+            <div class="grid-item">
+                <span class="label">纯净版式</span>
+                <span class="desc">极简留白 + 窄正文宽度，没有广告、弹窗或跟踪脚本。聚焦阅读与导航。</span>
+            </div>
+            <div class="grid-item">
+                <span class="label">场景适配</span>
+                <span class="desc">桌面与移动设备均做响应优化，文字清晰，触控友好。结构符合无障碍基础要求。</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区：页面意图 + 稳定入口 -->
+    <section class="callout-box">
+        <h3 style="margin-top:0;">关于本页</h3>
+        <p>本页面是为 <a href="https://h5-wccup2026.com">世界杯</a> 项目制作的独立落地页。主要面向需要快速了解背景、寻找直达链接的用户。所有内容均围绕真实信息组织，不包含倒计时、诱导按钮或推定承诺。</p>
+        <p>您可以通过上方或文内的链接直接前往世界杯主站。本站不收集个人信息，不设置跟踪器，仅作为静态索引页存在。</p>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+        <h2>常见问题摘要</h2>
+        <ul class="faq-list">
+            <li>
+                <div class="faq-q">这个页面和世界杯主站是什么关系？</div>
+                <div class="faq-a">本页是独立的介绍与引导页，链接到 <a href="https://h5-wccup2026.com">世界杯</a> 主站。主站包含完整赛事信息、数据与互动模块。</div>
+            </li>
+            <li>
+                <div class="faq-q">页面上出现的链接安全吗？</div>
+                <div class="faq-a">所有链接均指向同一域名（https://h5-wccup2026.com），通过 HTTPS 传输。建议用户自行核对 URL 后再访问。</div>
+            </li>
+            <li>
+                <div class="faq-q">移动端显示效果如何？</div>
+                <div class="faq-a">已针对常用屏幕宽度做响应适配，字体不小于 16px，点击区域留足间距。在主流浏览器中均可正常显示。</div>
+            </li>
+            <li>
+                <div class="faq-q">页面内容会频繁更新吗？</div>
+                <div class="faq-a">本页定位为稳定索引，内容结构保持长期一致。如需获取最新动态，请直接访问 <a href="https://h5-wccup2026.com">世界杯</a> 主站。</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 底部链接区 -->
+    <footer class="footer-links">
+        <span>关于 <a href="https://h5-wccup2026.com">世界杯</a> · 静态页</span>
+        <span class="copy">© 仅作索引展示</span>
+    </footer>
+
+</div>
+</body>
+</html>
