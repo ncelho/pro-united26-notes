@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯知识库 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* 页面主标题区 */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      margin-bottom: 2rem;
+      border: 1px solid #e9edf2;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #0a1a2b;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #3d4e63;
+      font-size: 1.05rem;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      background: #eef2f6;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #305070;
+      letter-spacing: 0.3px;
+      margin-bottom: 1rem;
+      border: 1px solid #dde3ea;
+    }
+
+    /* 目录感：网格卡片 */
+    .grid-directory {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8ee;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 14px rgba(0,20,40,0.06);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #0b1e2f;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #2f4055;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.6rem;
+    }
+
+    .card ul li {
+      padding: 0.3rem 0;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #6a7e99;
+    }
+
+    .inline-link {
+      color: #1a5c8c;
+      text-decoration: none;
+      border-bottom: 1px solid #b8ccdf;
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1a5c8c;
+    }
+
+    /* 说明区 / 提示区 全宽卡片 */
+    .info-panel {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      border: 1px solid #e2e8ee;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      margin-bottom: 2rem;
+    }
+
+    .info-panel h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #0a1a2b;
+      border-left: 4px solid #7895b8;
+      padding-left: 1rem;
+    }
+
+    .info-panel p {
+      margin-bottom: 0.8rem;
+    }
+
+    .info-panel .small-note {
+      font-size: 0.9rem;
+      background: #f5f8fb;
+      padding: 1rem 1.3rem;
+      border-radius: 12px;
+      border-left: 3px solid #b8cbd9;
+      margin-top: 1rem;
+      color: #2b4057;
+    }
+
+    .faq-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e8edf3;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #102738;
+    }
+
+    .faq-item span {
+      color: #385474;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #677f99;
+      border-top: 1px solid #e0e6ec;
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-directory {
+        grid-template-columns: 1fr;
+      }
+      .info-panel {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 区域：站点定位与可信说明 -->
+  <div class="hero">
+    <div class="badge-tag">📖 聚合 · 整理 · 可信参考</div>
+    <h1>世界杯知识库</h1>
+    <p>
+      这里是对 <a href="https://hub-fifa2026.com" class="inline-link">世界杯</a> 相关信息的系统梳理站点。
+      内容围绕赛事背景、历史沿革、承办信息、数据索引等方向展开，力求提供清晰有序的参考入口。
+    </p>
+  </div>
+
+  <!-- 目录感布局：四个卡片分区 -->
+  <div class="grid-directory">
+
+    <div class="card">
+      <h3>🏟️ 赛事背景</h3>
+      <p>涵盖世界杯历史分期、历届主办国、标志性比赛记录。从早期创办到当代扩军，时间线完整。</p>
+      <ul>
+        <li>1930–2022 历届概览</li>
+        <li>赛事规则演变</li>
+        <li>冠军与经典决赛</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🌍 2026 特别版</h3>
+      <p>聚焦下一届世界杯的相关说明：主办城市、场馆、赛制变化以及首次三国联办的模式。</p>
+      <ul>
+        <li>美国 · 加拿大 · 墨西哥</li>
+        <li>48 队赛制解读</li>
+        <li>举办城市速览</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📊 数据与记录</h3>
+      <p>球员、球队、射手榜、出勤纪录等数据索引，方便查找世界杯历史中的各个里程碑。</p>
+      <ul>
+        <li>总射手榜 & 单届金靴</li>
+        <li>出场王与冠军球员</li>
+        <li>各国家队参赛记录</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🔍 索引与工具</h3>
+      <p>整合外部公开资料、统计数据库、赛程归档，以及相关文献和多媒体参考指引。</p>
+      <ul>
+        <li>官方文档与报告</li>
+        <li>赛程检索指引</li>
+        <li>历史影像归档说明</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区：站点介绍与可信说明 -->
+  <div class="info-panel">
+    <h2>关于本站 · 可信说明</h2>
+    <p>
+      <strong>hub-fifa2026.com</strong> 是一个非官方的世界杯知识聚合页，所有内容均整理自公开的赛事资料、国际足联发布信息以及可靠体育媒体。
+      本站不提供直播、赌注或未经证实的新闻，旨在为浏览者提供一个结构化的信息起点。任何关于
+      <a href="https://hub-fifa2026.com" class="inline-link">世界杯</a> 的正式公告，请以国际足联官方渠道为准。
+    </p>
+    <p>
+      内容团队持续核验关键数据，并标注来源或参考范围。如果您发现任何偏差，欢迎通过页面反馈通道告知我们。
+    </p>
+    <div class="small-note">
+      ⚠️ 提示：本站不存储赛事视频或受版权保护内容，仅作为导航与摘要页面。部分外部链接可能会变更，请自行核对。
+    </div>
+  </div>
+
+  <!-- 提示区 + 相关信息区（融合） -->
+  <div class="info-panel">
+    <h2>📌 浏览提示 & 相关信息</h2>
+    <p>
+      您可以通过上方卡片快速定位感兴趣的主题。每个分区都对应一个详细页面（建设中），现阶段先提供概览与关键条目。
+      对于 <a href="https://hub-fifa2026.com" class="inline-link">世界杯</a> 的历史数据和赛事细节，我们建议同时参考多个独立信源。
+    </p>
+
+    <!-- 用 FAQ 摘要的形式展示常见问题/信息 -->
+    <div class="faq-summary">
+      <div class="faq-item">
+        <strong>❓ 内容更新频率？</strong>
+        <span>赛事周期内保持月度更新；重大抽签或赛程发布后会及时增补。</span>
+      </div>
+      <div class="faq-item">
+        <strong>❓ 是否包含 2026 世界杯票务信息？</strong>
+        <span>本站不直接售票，但会整理官方票务阶段和抽签注册链接，方便您查找。</span>
+      </div>
+      <div class="faq-item">
+        <strong>❓ 信息可靠程度如何？</strong>
+        <span>每一条数据均标注来源或计算依据，并经过交叉核对。您可以在页面底部找到参考文档列表。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 额外相关信息区：简洁条目 -->
+  <div class="info-panel" style="padding: 1.5rem 2rem;">
+    <h2 style="font-size: 1.2rem; border-left: none; padding-left: 0; margin-bottom: 0.5rem;">关联主题索引</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; margin-top: 0.4rem;">
+      <span style="background: #eef3f8; padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.9rem;">🏆 历届冠军</span>
+      <span style="background: #eef3f8; padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.9rem;">⚽ 最佳射手</span>
+      <span style="background: #eef3f8; padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.9rem;">📅 2026 赛程表</span>
+      <span style="background: #eef3f8; padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.9rem;">🌐 主办城市指南</span>
+      <span style="background: #eef3f8; padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.9rem;">📚 术语表</span>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    内容仅供参考 · 非 FIFA 官方页面 · 数据截止至 2025 年<br>
+    如引用本站内容，请注明出处并核对原始信息。
+  </div>
+
+</div>
+</body>
+</html>
