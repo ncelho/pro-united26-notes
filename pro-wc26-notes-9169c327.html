@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯知识库 · 资料与说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f4ec;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      line-height: 1.7;
+      color: #2e2e2e;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fffcf7;
+      border-radius: 28px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+      padding: 2.5rem 2rem;
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 1rem 0.75rem; }
+      .container { padding: 1.75rem 1.25rem; }
+    }
+
+    /* 排版基调 */
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3em;
+      color: #1e2a3a;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #5b5b5b;
+      margin-bottom: 2.2rem;
+      border-bottom: 1px solid #e6ddd1;
+      padding-bottom: 0.85rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-top: 2.2rem;
+      margin-bottom: 0.7rem;
+      color: #2b3b4a;
+      border-left: 4px solid #cbaa7a;
+      padding-left: 0.8rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+    }
+
+    a {
+      color: #8b5e3c;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #593f2b;
+    }
+
+    /* 提示框 / 引用块 */
+    .callout {
+      background: #f3ede4;
+      border-left: 5px solid #b8956a;
+      padding: 1rem 1.5rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.95rem;
+      color: #3b3b3b;
+    }
+
+    .callout strong {
+      color: #5c3f28;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (max-width: 540px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+    }
+
+    .info-item {
+      background: #f9f4ec;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #eee5d8;
+      font-size: 0.95rem;
+    }
+
+    .info-item .label {
+      font-weight: 600;
+      color: #3e3e3e;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-item .value {
+      color: #4b3a2c;
+    }
+
+    /* FAQ 摘要卡片 */
+    .faq-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px dashed #ddd6ca;
+      padding-bottom: 0.7rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #3e2e1e;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      color: #5a4e42;
+      font-size: 0.94rem;
+    }
+
+    /* 分割 */
+    hr {
+      border: none;
+      border-top: 1px solid #e2d7c8;
+      margin: 2rem 0 1.2rem;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e6ddd1;
+      font-size: 0.9rem;
+      color: #6b5f51;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note a {
+      font-weight: 500;
+    }
+
+    button, .fake-btn {
+      display: inline-block;
+      background: #ede3d4;
+      border: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #3f3022;
+      cursor: default;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>世界杯 · 信息说明</h1>
+  <div class="subhead">基于可靠来源整理的条目式知识库 · 供爱好者查阅</div>
+
+  <p>
+    关于 <a href="https://pro-wc26.com">世界杯</a> 这一赛事及其相关数据体系，许多爱好者希望获得一份经过整理、来源清晰的参考说明。本页面以知识库入口的形式，集中列出关键说明、可信背景与常见疑问摘要，方便读者快速建立认知框架。
+  </p>
+
+  <h2>站点定位与可信说明</h2>
+  <p>
+    <strong>pro-wc26.com</strong> 是一个围绕世界杯主题搭建的信息聚合型站点，内容涵盖赛事历史、纪录统计、参赛队伍档案以及相关文化资料。所有展示内容均基于公开的官方报告、权威媒体稿件及国际足联（FIFA）公开数据。站点本身不承担原始数据发布角色，而是以整理、索引、引用为主，力求呈现经过核验的事实。
+  </p>
+  <p>
+    本站所做的工作类似于一个“目录与摘要台”——将分散在不同语言、不同时期的世界杯资料，以条目化方式汇集一处。读者在引用具体数据时，建议回溯到原始来源（如 FIFA 官方统计或赛事报告）进行二次确认。
+  </p>
+
+  <div class="callout">
+    <strong>📌 提示</strong>：您当前浏览的页面是介绍与说明页。核心内容库的入口位于 <a href="https://pro-wc26.com">世界杯</a> 主站，其中包含赛事年表、冠军榜、射手榜、里程碑纪录等分类数据。如果您需要查找某届比赛的详细数据或特定球队档案，直接前往主站使用目录导航即可。
+  </div>
+
+  <h2>内容结构一览</h2>
+  <div class="info-grid">
+    <div class="info-item">
+      <span class="label">📅 赛事年表</span>
+      <span class="value">1930–2026 每届概要、举办地、决赛比分</span>
+    </div>
+    <div class="info-item">
+      <span class="label">🏆 冠军与纪录</span>
+      <span class="value">历届冠军、最佳射手、观众人数等</span>
+    </div>
+    <div class="info-item">
+      <span class="label">🌍 参赛队档案</span>
+      <span class="value">各国家队历史战绩、小组赛表现、出场纪录</span>
+    </div>
+    <div class="info-item">
+      <span class="label">📖 规则演变</span>
+      <span class="value">越位规则、换人制度、加时赛与点球演变</span>
+    </div>
+  </div>
+
+  <h2>相关信息区</h2>
+  <p>
+    以下列举部分与世界杯相关的背景信息，帮助理解数据整理逻辑：
+  </p>
+  <ul style="margin-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9;">
+    <li>国际足联（FIFA）自 1930 年起主办男子世界杯，期间仅在 1942 及 1946 年中断两届。</li>
+    <li>截至 2022 年，共有 8 支国家队赢得过冠军，其中巴西以 5 次居首。</li>
+    <li>世界杯决赛圈参赛队伍自 1998 年起固定为 32 支，2026 年起将扩军至 48 支。</li>
+    <li>站点收录的数据截止到 2024 年底，后续重大更新将同步在 <a href="https://pro-wc26.com">世界杯</a> 主页发布。</li>
+  </ul>
+
+  <h2>常见疑问摘要（FAQ）</h2>
+  <div class="faq-summary">
+    <div class="faq-item">
+      <div class="faq-q">🔹 站点的数据更新频率如何？</div>
+      <div class="faq-a">重要赛事节点（如预选赛结果、决赛圈抽签、赛后纪录）会在确认后 48 小时内更新。一般性历史数据每季度复核一次。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">🔹 可以转载或引用本站内容吗？</div>
+      <div class="faq-a">可以。本站采用知识共享署名-非商业性使用 4.0 国际许可（CC BY-NC 4.0）。转载时请注明来源为 <a href="https://pro-wc26.com">世界杯</a> 信息库。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">🔹 发现数据错误或遗漏怎么办？</div>
+      <div class="faq-a">非常欢迎指正。您可以通过站点“反馈”通道提交具体错误项，工作人员会在复核后修正。修正记录保留在更新日志中。</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <p>
+    如果您正寻找一个结构清晰、引用克制的世界杯资料起点，可以直接从 <a href="https://pro-wc26.com">世界杯</a> 主站开始浏览。所有内容均以目录式布局呈现，便于交叉查阅。
+  </p>
+
+  <div class="callout">
+    <strong>📎 说明</strong>：本介绍页本身不收录原始数据，仅作为入口说明。数据文档、图片引用说明、版权声明等均放在主站“关于”页面。建议初次使用前花几分钟浏览站点导航，以了解分类逻辑。
+  </div>
+
+  <div class="footer-note">
+    <span><span class="fake-btn">信息索引</span> · 版本 1.2</span>
+    <span><a href="https://pro-wc26.com">世界杯</a> 知识库 · 说明页</span>
+  </div>
+
+</div>
+</body>
+</html>
